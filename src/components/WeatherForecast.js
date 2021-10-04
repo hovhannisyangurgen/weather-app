@@ -9,8 +9,8 @@ const WeatherForecast = ({ dailyData }) => {
       renderItem={item => (
         <List.Item>
           <Card title={moment(item.dt * 1000).format('MMM DD')}>
-            {[ 'day', 'night' ].map(key => <Row>
-              <Col>
+            {[ 'day', 'night' ].map((key, index) => <Row>
+              <Col key={`${key}${index}`}>
                 <img className='day-time-icon' src={`${key}.png`} alt='day-time'/>{`${item.temp[key]}K`}
               </Col>
             </Row>)}
