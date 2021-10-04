@@ -1,6 +1,6 @@
 import { useState, useEffect, Fragment } from 'react';
 import { useDispatch, connect } from 'react-redux';
-import { Row } from 'antd';
+import { Row, Spin } from 'antd';
 
 import { fetchWeatherData } from '../actions/index';
 import WeatherForecast from '../components/WeatherForecast';
@@ -27,15 +27,12 @@ const WeatherData = ({ data }) => {
   }, [ currentLocation ]);
 
   return <Fragment>
-    {
-      !data.current
-        ? null
-        : <Row className='forecast-bg'>
-          <CurrentWeather current={data.current} />
-          <WeatherForecast dailyData={data.daily} /> 
-        </Row>
-    }
-    
+    <Spin spinning={!data.current}>
+      <Row className='forecast-bg'>
+        <CurrentWeather current={data.current} />
+        <WeatherForecast dailyData={data.daily} /> 
+      </Row>
+    </Spin>
   </Fragment>;
 };
 

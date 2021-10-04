@@ -8,9 +8,9 @@ export const fetchData = (data) => ({ type: FETCH_DATA, data  });
 export const fetchDataError = (error) => ({ type: FETCH_DATA_ERROR, error });
 
 export const fetchWeatherData = ({ currentLocation }) => (dispatch) => {
-  request({
-    endpoint: 'onecall',
-    queryParams: {
+  request().get('onecall', {
+    params: {
+      appid: process.env.REACT_APP_APP_ID,
       ...currentLocation,
       ...{
         lat: 33.44,
@@ -19,6 +19,6 @@ export const fetchWeatherData = ({ currentLocation }) => (dispatch) => {
       exclude: 'hourly,minutely',
     },
   })
-    .then(data => dispatch(fetchData(data)))
+    .then(({ data }) => dispatch(fetchData(data)))
     .catch(error => dispatch(fetchDataError(error)));
 };
