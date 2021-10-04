@@ -1,0 +1,27 @@
+.text-block {
+  background: #f0f7fd;
+  font-size: 30px;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.ant-card-body {
+  padding-left: 10px;
+  padding-right: 5px;
+}
+
+.forecast-bg {
+  background: #f0f0f0;
+}
+
+.day-time-icon {
+  background-repeat: no-repeat;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
