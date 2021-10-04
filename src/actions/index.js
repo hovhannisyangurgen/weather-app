@@ -12,10 +12,6 @@ export const fetchWeatherData = ({ currentLocation }) => (dispatch) => {
     params: {
       appid: process.env.REACT_APP_APP_ID,
       ...currentLocation,
-      ...{
-        lat: 33.44,
-        lon: -94.04,
-      },
       exclude: 'hourly,minutely',
     },
   })
